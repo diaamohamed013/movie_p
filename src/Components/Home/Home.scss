@@ -1,0 +1,110 @@
+$borderColor: #a8a8a83d;
+$borderHeight: 1px;
+$imgHeight: 294px;
+$tabHeight: 204px;
+$mobHeight: 526px;
+$titleColor: #f96167;
+$undHeight:415px;
+
+@mixin clorTran() {
+    transition: color 0.4s;
+    -webkit-transition: color 0.4s;
+    -moz-transition: color 0.4s;
+    -ms-transition: color 0.4s;
+    -o-transition: color 0.4s;
+}
+
+@mixin imgTran() {
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+}
+
+@mixin imgScale($x, $y) {
+    transform: scale($x, $y);
+    -webkit-transform: scale($x, $y);
+    -moz-transform: scale($x, $y);
+    -ms-transform: scale($x, $y);
+    -o-transform: scale($x, $y);
+}
+
+.commonPsition {
+    position: absolute;
+    top: 0;
+}
+
+.home {
+    .brdr {
+        height: $borderHeight;
+        border: 0.5px solid $borderColor;
+    }
+    .movie-title {
+        h2 {
+            font-size: 15px !important;
+            @include clorTran();
+            &:hover {
+                color: $titleColor;
+            }
+        }
+    }
+    .movie-poster {
+        overflow: hidden;
+        position: relative;
+        .vote {
+            height: 35px;
+            width: 35px;
+            @extend .commonPsition;
+            right: -50px;
+            @include imgTran();
+            z-index: 11;
+        }
+        .details {
+            @extend .commonPsition;
+            @include imgTran();
+            opacity: 0;
+            visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        img {
+            @include imgTran();
+        }
+        &:hover {
+            img {
+                @include imgScale(1.3, 1.3);
+            }
+            .vote {
+                right: 2px;
+            }
+            .details {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}
+.errImg {
+    height: $imgHeight;
+}
+
+.h-415{
+    height: $undHeight;
+}
+
+@media screen and(max-width:1024px) {
+    .errImg {
+        height: $tabHeight;
+    }
+}
+@media screen and(max-width:540px) {
+    .errImg {
+        height: $mobHeight;
+    }
+}
