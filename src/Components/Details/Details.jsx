@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams , Link} from 'react-router-dom'
 
 // userParms to bring any parameter's value from url
 
@@ -32,6 +32,10 @@ export default function Details() {
             <i className='fas fa-spinner fa-spin fa-4x'></i>
           </div>
           :
+          <>
+          <div className="backBtn d-inline-block">
+              <Link className="bg-info py-2 px-3 my-3 rounded" to="/home">Back Home</Link>
+          </div>
           <div className="item">
             <div className="row py-4 gy-4">
               <div className="col-lg-3">
@@ -129,6 +133,7 @@ export default function Details() {
               </div>
             </div>
           </div>
+          </>
       }
     </>
   )

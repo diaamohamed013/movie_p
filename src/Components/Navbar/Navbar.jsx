@@ -1,15 +1,14 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './Navbar.scss'
 export default function Navbar(props) {
     return (
         <>
             <nav className='navbar navbar-expand-lg'>
-                <div className="container-fluid">
-                    <NavLink className='navbar-brand d-flex align-items-center text-white' to="/home" >
-                        <img src="icons8_clapperboard_32.png" className='mx-2' alt="" />
+                <div className="container">
+                    <Link className='navbar-brand d-flex align-items-center text-white' to="/home" >
                         Movzie
-                    </NavLink>
+                    </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon navbar-dark"></span>
                     </button>
@@ -40,12 +39,12 @@ export default function Navbar(props) {
                                     }
                                         to="people">People</NavLink>
                                 </li>
-                                <li className="nav-item">
+                                {/* <li className="nav-item">
                                     <NavLink className={({ isActive }) =>
                                         isActive ? 'active' : 'nav-link'
                                     }
                                         to="about">Profile</NavLink>
-                                </li>
+                                </li> */}
                             </ul> : " "}
                         {props.userData !== null ?
                             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -68,12 +67,12 @@ export default function Navbar(props) {
                                         <i className='fab mx-2 fa-github'></i>
                                     </a>
                                 </div>
-                                <li className="nav-item">
+                                {/* <li className="nav-item">
                                     <a onClick={props.logOut} role="button" className="nav-link">
                                         <span className='mx-2 text-info'>{props.userData.first_name}</span>
                                         <i className="fa-solid fa-right-from-bracket"></i>
                                     </a>
-                                </li>
+                                </li> */}
                             </ul>
                             : <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                                 <div className="social d-flex flex-row align-items-center mx-3">
@@ -87,7 +86,7 @@ export default function Navbar(props) {
                                         <i className='fab mx-2 fa-github'></i>
                                     </a>
                                 </div>
-                                <li className="nav-item mx-lg-3">
+                                {/* <li className="nav-item mx-lg-3">
                                     <NavLink className={({ isActive }) =>
                                         isActive ? 'active' : 'nav-link'
                                     }
@@ -98,7 +97,7 @@ export default function Navbar(props) {
                                         isActive ? 'active' : 'nav-link'
                                     }
                                         to="register">Register</NavLink>
-                                </li>
+                                </li> */}
                             </ul>}
 
                     </div>

@@ -48,24 +48,47 @@ function App() {
   }
 
   return (
+    // <>
+    //   <Navbar userData={userData} logOut={logOut} />
+    //   <div className="container">
+    //     <Routes>
+    //       <Route path='/' element={<ProtectedRoute><Home /></ProtectedRoute>}></Route>
+    //       <Route path='home' element={<ProtectedRoute><Home /></ProtectedRoute>}></Route>
+    //       <Route path='about' element={<ProtectedRoute><Profile userData={userData} /></ProtectedRoute>}></Route>
+    //       <Route path='people' element={<ProtectedRoute><People /></ProtectedRoute>}></Route>
+    //       <Route path='tvshows' element={<ProtectedRoute><Tvshows /></ProtectedRoute>}></Route>
+    //       <Route path='movies' element={<ProtectedRoute><Movies /></ProtectedRoute>}></Route>
+    //       <Route path='details' element={<ProtectedRoute><Details/></ProtectedRoute>}>
+    //         <Route path=':id' element={<ProtectedRoute><Details /></ProtectedRoute>}>
+    //           <Route path=':mediaType' element={<ProtectedRoute><Details /></ProtectedRoute>}></Route>
+    //         </Route>
+    //       </Route>
+    //       <Route path='search' element={<ProtectedRoute><Search /></ProtectedRoute>}></Route>
+    //       <Route path='login' element={<Login saveUserData={saveUserData} />}></Route>
+    //       <Route path='register' element={<Register />}></Route>
+    //       <Route path='*' element={<Notfound />}></Route>
+    //     </Routes>
+    //   </div>
+
+    // </>
     <>
-      <Navbar userData={userData} logOut={logOut} />
+      <Navbar/>
       <div className="container">
         <Routes>
-          <Route path='/' element={<ProtectedRoute><Home /></ProtectedRoute>}></Route>
-          <Route path='home' element={<ProtectedRoute><Home /></ProtectedRoute>}></Route>
-          <Route path='about' element={<ProtectedRoute><Profile userData={userData} /></ProtectedRoute>}></Route>
-          <Route path='people' element={<ProtectedRoute><People /></ProtectedRoute>}></Route>
-          <Route path='tvshows' element={<ProtectedRoute><Tvshows /></ProtectedRoute>}></Route>
-          <Route path='movies' element={<ProtectedRoute><Movies /></ProtectedRoute>}></Route>
-          <Route path='details' element={<ProtectedRoute><Details/></ProtectedRoute>}>
-            <Route path=':id' element={<ProtectedRoute><Details /></ProtectedRoute>}>
-              <Route path=':mediaType' element={<ProtectedRoute><Details /></ProtectedRoute>}></Route>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='home' element={<Home />}></Route>
+          <Route path='about' element={<Profile userData={userData} />}></Route>
+          <Route path='people' element={<People />}></Route>
+          <Route path='tvshows' element={<Tvshows />}></Route>
+          <Route path='movies' element={<Movies />}></Route>
+          <Route path='details' element={<Details />}>
+            <Route path=':id' element={<Details />}>
+              <Route path=':mediaType' element={<Details />}></Route>
             </Route>
           </Route>
-          <Route path='search' element={<ProtectedRoute><Search /></ProtectedRoute>}></Route>
-          <Route path='login' element={<Login saveUserData={saveUserData} />}></Route>
-          <Route path='register' element={<Register />}></Route>
+          <Route path='search' element={<Search />}></Route>
+          {/* <Route path='login' element={<Login saveUserData={saveUserData} />}></Route> */}
+          {/* <Route path='register' element={<Register />}></Route> */}
           <Route path='*' element={<Notfound />}></Route>
         </Routes>
       </div>

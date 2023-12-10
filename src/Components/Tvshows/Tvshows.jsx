@@ -32,56 +32,61 @@ export default function Movies() {
           <i className='fas fa-spinner fa-spin fa-4x'></i>
         </div>
         :
-        <div className="home">
-          <div className="row py-4 gy-4 align-items-center justify-content-center">
-            {
-              trendingTv.map((tv) =>
-                <div key={tv.id} className="col-md-2" role="button">
-                  <div className="movie">
-                    <Link to={`/details/${tv.id}/tv`}>
-                      <div className="movie-poster">
-                        {tv.poster_path !== null ?
-                          <img src={baseImgUrl + tv.poster_path} className="w-100" alt="" />
-                          :
-                          <img src="img-not.jpg" className='w-100 errImg' alt="" />
-                        }
-                        {tv.poster_path === undefined ?
-                          <img src="img-not.jpg" className='w-100 errImg' alt="" />
-                          :
-                          ''
-                        }
-                        <div className="details text-info">
-                          show more details
-                        </div>
-                        <div className="vote bg-info d-flex justify-content-center align-items-center">
-                          <span>{tv.vote_average.toFixed(1)}</span>
-                        </div>
-                      </div>
-                      <div className="movie-title my-3">
-                        <h2 className='h6'>
-                          {tv.name}
-                        </h2>
-                      </div>
-                    </Link>
-
-                  </div>
-                </div>
-              )
-            }
-            <>
-              <nav aria-label="Page navigation example" className='d-flex justify-content-center my-3'>
-                <ul className="pagination overflow-auto">
-                  {
-                    nums.map((num) =>
-                      <li onClick={() => getTrending(num)} key={num} className="page-item">
-                        <a className={currentPage === num ? `page-link text-dark bg-danger` : `page-link text-white bg-transparent`} role="button">{num}</a></li>
-                    )
-                  }
-                </ul>
-              </nav>
-            </>
+        <>
+          <div className="backBtn d-inline-block">
+            <Link className="bg-info py-2 px-3 my-3 rounded" to="/home">Back Home</Link>
           </div>
-        </div>
+          <div className="home">
+            <div className="row py-4 gy-4 align-items-center justify-content-center">
+              {
+                trendingTv.map((tv) =>
+                  <div key={tv.id} className="col-md-2" role="button">
+                    <div className="movie">
+                      <Link to={`/details/${tv.id}/tv`}>
+                        <div className="movie-poster">
+                          {tv.poster_path !== null ?
+                            <img src={baseImgUrl + tv.poster_path} className="w-100" alt="" />
+                            :
+                            <img src="img-not.jpg" className='w-100 errImg' alt="" />
+                          }
+                          {tv.poster_path === undefined ?
+                            <img src="img-not.jpg" className='w-100 errImg' alt="" />
+                            :
+                            ''
+                          }
+                          <div className="details text-info">
+                            show more details
+                          </div>
+                          <div className="vote bg-info d-flex justify-content-center align-items-center">
+                            <span>{tv.vote_average.toFixed(1)}</span>
+                          </div>
+                        </div>
+                        <div className="movie-title my-3">
+                          <h2 className='h6'>
+                            {tv.name}
+                          </h2>
+                        </div>
+                      </Link>
+
+                    </div>
+                  </div>
+                )
+              }
+              <>
+                <nav aria-label="Page navigation example" className='d-flex justify-content-center my-3'>
+                  <ul className="pagination overflow-auto">
+                    {
+                      nums.map((num) =>
+                        <li onClick={() => getTrending(num)} key={num} className="page-item">
+                          <a className={currentPage === num ? `page-link text-dark bg-danger` : `page-link text-white bg-transparent`} role="button">{num}</a></li>
+                      )
+                    }
+                  </ul>
+                </nav>
+              </>
+            </div>
+          </div>
+        </>
       }
     </>
   )
